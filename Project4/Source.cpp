@@ -21,6 +21,7 @@ void MeterMorro();
 void cambiarStatusOK();
 void cambiarStatus();
 void buscador();
+void modificarcontacto();
 
 //void bucarMorro();
 
@@ -47,7 +48,10 @@ int main() {
 		case 'd':
 			cambiarStatus();
 			break;
-		default:
+		defaul;
+		case 'f':
+			modificarcontacto();
+			break;
 			break;
 		}
 	} while (opc != 'h');
@@ -210,7 +214,54 @@ void cambiarStatusOK() {  // desbloquear
 	printf("alumno no encontrado\n");
 
 	fclose(lalista);
+}void modificarcontacto() {
+	system("cls");
+	char NOMBRE[30];
+	int posicion = 0;
+	int re;
+	FILE* MODIFICAR;
+	MODIFICAR = fopen("Lista de contactos.alv", "rb+");
+	Morros edicion;
+
+	printf("\n¿cual es el nombre?  :\n");
+	scanf_s(" %[^\n]s", &NOMBRE, sizeof(NOMBRE));
+
+	fread(&edicion, sizeof(Morros), 1, MODIFICAR);
+	while (!feof(MODIFICAR))
+	{
+		if (!strcmp(edicion.Alumno, NOMBRE) && edicion.estatus == 1) {
+			printf("\tNombre  registro\n\t");
+			printf("%s\t", edicion.Alumno);
+			printf("%i\n", status.telefono;
+
+			posicion = ftell(MODIFICAR) - sizeof(edicion);  // me indica la posicion actual del fichero
+			fseek(MODIFICAR, posicion, SEEK_SET);//identificador del fichero, el desplazamiento, la posición de origen
+			printf("\nQue dato desea modificar?");
+			printf("\n\t 1 Nombre \n\t 2 registro");
+			scanf_s(" %i", &re);
+
+			if (re == 1)
+			{
+				printf("\n nuevo nombre :\t");
+				scanf_s(" %[^\n]s", &edicion.Alumno, sizeof(edicion.Alumno));
+				fwrite(&edicion, sizeof(Morros), 1, MODIFICAR);
+			}
+			if (re == 2)
+			{
+				printf("\nnuevo numero  :\t");
+				scanf_s("%i", &edicion.registro, sizeof(edicion.registro));
+				fwrite(&edicion, sizeof(Morros), 1, MODIFICAR);
+			}
+			break;
+		}
+		fread(&edicion, sizeof(Morros), 1, MODIFICAR);
+	}
+
+	fclose(MODIFICAR);
+	system("pause");
+	system("cls");
 }
+
 
 
 
