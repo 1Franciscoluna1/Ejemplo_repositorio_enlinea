@@ -24,6 +24,8 @@ void buscador();
 
 //void bucarMorro();
 
+//Este es un comentario solo para demostrar que funciona el repositorio remoto
+
 int main() {
 	char opc;
 
