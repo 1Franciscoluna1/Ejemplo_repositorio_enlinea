@@ -25,6 +25,8 @@ void buscador();
 //void bucarMorro();
 
 //Este es un comentario solo para demostrar que funciona el repositorio remoto
+//Aqui se supone que otra persona modifico dicha rama y todas estas modificaciones se jalaran para trabajar con ellas
+
 
 int main() {
 	char opc;
